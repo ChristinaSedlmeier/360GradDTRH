@@ -45,9 +45,13 @@
 			init: function () {
 				var myEl = document.querySelector('#cubeerna');
         var myVidE = document.querySelector('#heartbeat_erna');
+        var closeAndrea = document.querySelector('#closeandrea');
+        var closeGeorg = document.querySelector('#closegeorg');
 				this.el.addEventListener('click', function () {
 					myEl.components.sound.playSound();
           myVidE.play();
+          closeAndrea.setAttribute("visible",false);
+          closeGeorg.setAttribute("visible",false);
 				});
 			}
 		});
@@ -71,8 +75,12 @@
 		AFRAME.registerComponent('playa', {
 			init: function () {
 				var myEl = document.querySelector('#cubeandrea');
+        var closeErna = document.querySelector('#closeerna');
+        var closeGeorg = document.querySelector('#closegeorg');
 				this.el.addEventListener('click', function () {
 					myEl.components.sound.playSound();
+          closeErna.setAttribute("visible",false);
+          closeGeorg.setAttribute("visible",false);
 				});
 			}
 		});
@@ -91,8 +99,12 @@
 		AFRAME.registerComponent('playg', {
 			init: function () {
 				var myEl = document.querySelector('#cubegeorg');
+        var closeErna = document.querySelector('#closeerna');
+        var closeAndrea = document.querySelector('#closeandrea');
 				this.el.addEventListener('click', function () {
 					myEl.components.sound.playSound();
+          closeErna.setAttribute("visible",false);
+          closeAndrea.setAttribute("visible",false);
 				});
 			}
 		});
@@ -153,14 +165,17 @@
           }
         }
         
-        function playVideo () {
-          vid.play();
-          proj.components.material.material.map.image.play();
-          vid.addEventListener("ended", function() {
-					console.log("The video has ended");
+      function playVideo () {
+      vid.play();
+      proj.components.material.material.map.image.play();
+      vid.addEventListener("ended", function() {
+        //add videosphere here
+			console.log("The video has ended");
 				}) 
         }
       })
+      
+      
     </script>
     
 				
@@ -180,7 +195,7 @@
 	</script>
     
     <!--- reset behavior Projection when Cube deactivated--->
-        <script>
+    <script>
 		AFRAME.registerComponent('speedup', {
 			init: function () {
     var myVideo = document.querySelector('#video');
@@ -190,7 +205,9 @@
 				});
 			}
 		});
-	</script>
+      
+
+    </script>
     
   </head> 
   
@@ -200,9 +217,6 @@
     
     <div id="splash">
     <div id="start-button">Los geht's!</div>
-    <button class="restart">
-        Restart
-    </button>
     </div>
     
     <a-scene antialias="true">
@@ -212,7 +226,7 @@
         <video id="video" preload="auto" src="https://cdn.glitch.com/6b3be800-0d26-4cf5-b0e0-e1ae2231fc02%2FUnbenannt-1.mp4?v=1619422761090" webkit-playsinline crossorigin="anonymous"></video>
         <video id="heartbeat_erna" preload="auto" src="https://cdn.glitch.com/6b3be800-0d26-4cf5-b0e0-e1ae2231fc02%2FStrobo%20Video%20Light.mp4?v=1619540391152" webkit-playsinline crossorigin="anonymous"></video>
         <audio id="erna" preload="auto" src="https://cdn.glitch.com/6b3be800-0d26-4cf5-b0e0-e1ae2231fc02%2FErna_Rentnerin_01.mp3?v=1619508162160" crossorigin="anonymous"></audio>
-        <audio id="mary" preload="auto" src="https://cdn.glitch.com/84b690e5-1cc8-41d6-b924-da49b51d872a%2FMary_Studentin_20210425_01.mp3?v=1619768669644"></audio>
+        <audio id="mary" preload="auto" src="https://cdn.glitch.com/84b690e5-1cc8-41d6-b924-da49b51d872a%2FMary_Studentin_20210425_01.mp3?v=1619768669644" crossorigin="anonymous"></audio>
         <audio id="andrea" preload="auto" src="https://cdn.glitch.com/6b3be800-0d26-4cf5-b0e0-e1ae2231fc02%2FAndrea_Verschwoerungsideologin_fuer%20Einreichung_20210130_01.mp3?v=1619508155901" crossorigin="anonymous"></audio>
         <audio id="georg" preload="auto" src="https://cdn.glitch.com/6b3be800-0d26-4cf5-b0e0-e1ae2231fc02%2FGeorg_Altenpfleger_20210129_01.mp3?v=1619508156612" crossorigin="anonymous"></audio>
         <image id="close" src ="https://cdn.glitch.com/6b3be800-0d26-4cf5-b0e0-e1ae2231fc02%2Fkisspng-computer-icons-symbol-circle-black-close-icon-5ab0da57bf6214.2979679915215396717839.png?v=1619440080274" crossorigin="anonymous"></image>
@@ -326,3 +340,4 @@
 
      </body>
 </html>
+
